@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.static('public'));
 
 require("./routes/routes_html")(app);
-
+require("./routes/routes_html")(app);
 
 app.listen(PORT, () => {
     console.log(`APP now on port ${PORT}!`);
