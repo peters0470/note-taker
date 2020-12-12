@@ -17,23 +17,23 @@ module.exports = (app) => {
     })
 });
 
-// app.delete("/api/notes/:id", (request, result) => {
-//     let noteId = request.params.id;
-//     console.log("noteId: ", noteId);
+app.delete("/api/notes/:id", (request, result) => {
+    let noteId = request.params.id;
+    console.log("noteId: ", noteId);
     
-//     fs.readFile("./db/db.json", "utf-8", (err, response) => {
-//         if (err) throw (err);
-//         const allNotes = JSON.parse(response);
-//         const newNotes = allNotes.filter(note => note.id != noteId);
-//         fs.writeFile("./db/db.json", JSON.stringify(newNotes, null, 2),
-//             err => {
-//                 if (err) throw err;
-//                 result.json(true);
-//                 console.log('Notes have been deleted!');
-//             }
-//         );
-//       });
-//     });
+    fs.readFile("./db/db.json", "utf-8", (err, response) => {
+        if (err) throw (err);
+        const allNotes = JSON.parse(response);
+        const newNotes = allNotes.filter(note => note.id != noteId);
+        fs.writeFile("./db/db.json", JSON.stringify(newNotes, null, 2),
+            err => {
+                if (err) throw err;
+                result.json(true);
+                console.log('Notes have been deleted!');
+            }
+        );
+      });
+    });
 
 app.post("/api/notes", (request, result) => {
     console.log(data, "adding new note", request.body);
